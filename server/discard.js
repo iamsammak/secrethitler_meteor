@@ -105,8 +105,8 @@ Meteor.methods({
         update.currentPresident = (room.currentPresident + 1) % _.size(room.players);
         update.currentChancellor = -1;
 
-        // if only 3 players are alive, only last chanchellor is ineligible to be next chan
-        if (room.alive <= 3) {
+        // if only 5 players are alive, only last chanchellor is ineligible to be next chan
+        if (room.alive <= 5) {
           update.ruledout = [
           room.players[room.currentChancellor].playerId ];
         } else {
