@@ -357,18 +357,23 @@ Template.game.events({
     });
   },
   "click .pick-fascist": function() {
-    let playerId = Session.get("playerId");
-    Meteor.call("discard", {
+    if (confirm("You're more liberal than Bernie!!! You sure you want to discard this fascist policy??")) {
+      let playerId = Session.get("playerId");
+      Meteor.call("discard", {
         playerId: playerId,
         card: "fascist"
     });
+    }
+    
   },
   "click .pick-liberal": function() {
-    let playerId = Session.get("playerId");
-    Meteor.call("discard", {
+    if (confirm("Are you Hitler or something??? Do you actually want to discard a liberal policy??")) {
+      let playerId = Session.get("playerId");
+      Meteor.call("discard", {
         playerId: playerId,
         card: "liberal"
     });
+    }
   },
   "click ul.ring > li": function(event) {
     let playerId = $(event.currentTarget).data("playerid");
